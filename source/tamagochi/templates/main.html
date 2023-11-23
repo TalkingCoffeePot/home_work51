@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "css/style_start.css" %}'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="titles">
+            <h1>
+            Вас приветствует симулятор кота!
+            </h1>
+            <h2>
+                Для начала введите имя кота:
+            </h2>
+        </div>
+        <div class="name">
+            <form action="/create/" method="post">
+                {% csrf_token %}
+                <div class="inputs">
+                    <input class="field" type="text" name="cat_name">
+                    <input class="btn" type="submit" value="Завести кота">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

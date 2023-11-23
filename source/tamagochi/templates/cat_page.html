@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "css/style_game.css" %}'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="stat_box">
+            <div class="img">
+                {% load static %}
+                <img src={{image}}>
+            </div>
+
+            <div class="stats">
+                <h3>Кот - {{name}}</h3>
+                <h3>Возраст - {{age}}</h3>
+                <h3>Уровень сытости - {{hunger}}</h3>
+                <h3>Уровень счастья - {{happiness}}</h3>
+            </div>
+        </div>
+        <div class="menu">
+            <form action="/choise/" method="post">
+                {% csrf_token %}
+                <div class="select_block">
+                    <select class="select" name="action" id="action">
+                        <option disabled selected value> -- выберите действие -- </option>
+                        <option value="play">Играть с котом</option>
+                        <option value="feed">Покормить кота</option>
+                        <option value="sleep">Уложить кота спать</option>
+                    </select>
+                    <input  class="btn" type="submit" value="Применить">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
